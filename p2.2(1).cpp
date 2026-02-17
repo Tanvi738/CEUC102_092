@@ -10,20 +10,31 @@ class Student
 
     public:
     void putdata();
-    Student()
+    Student():roll_number(92),name("Tanvi Patel")
     {
         cout<<"student register:"<<endl;
-        roll_number=92;
-        name="Tanvi Patel";
+       //roll_number=92;
+       // name="Tanvi Patel";
         marks[0]=80;
         marks[1]=89;
         marks[2]=98;
 
-        for(int i=0;i<3;i++)
+        for(int i=0;i<2;i++)
         {
             avg=avg+marks[i];
         }
         avg=avg/3;
+    }
+    Student(int r,string n,int m[3],float a)
+    {
+        cout<<"calling parameterrise constructer.."<<endl;
+        roll_number=r;
+        name=n;
+        avg=a;
+        for(int i=0;i<3;i++)
+        {
+            marks[i]=m[i];
+        }
     }
 };
 void Student:: putdata()
@@ -39,7 +50,7 @@ void Student:: putdata()
 
 int main()
 {
-    Student b1[5];
+      Student b1[5];
 
     cout<<"=============printing details==============="<<endl;
 
@@ -47,6 +58,32 @@ int main()
     {
         b1[i].putdata();
     }
+
+    int r;
+    string n;
+    int m[3];
+    float avg=0;
+
+    cout<<"enter the roll number:"<<endl;
+    cin>>r;
+
+    cout<<"enter the name"<<endl;
+    cin>>n;
+
+    cout<<"enter the marks of 3 subject.."<<endl;
+    for(int i=0;i<3;i++)
+    {
+        cout<<"enter the marks of "<<i+1<<"subject:";
+        cin>>m[i];
+        avg=avg+m[i];
+    }
+    avg=avg/3;
+    cout<<endl;
+    cout<<"printing details.."<<endl;
+
+    Student b2(r,n,m,avg);
+    b2.putdata();
+
     return 0;
 
 }
