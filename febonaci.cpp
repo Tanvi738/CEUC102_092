@@ -1,37 +1,37 @@
+//Febonaci
+
 #include<iostream>
 using namespace std;
 
-class Febonaci
+class Fibonaci
 {
-    int n,i,a=0,b=1,c;
-    public:
-
+    int n,i,a;
+public:
     int fun()
     {
-        cout<<"enter the number:";
+        cout<<"Enter the number : ";
         cin>>n;
-        cout<<"Tanvi Patel_25CE092"<<endl;
-
-    }
-
-    int fib()
-    {
+        cout<<" Fibonacci Sequnce "<<endl;
         for(i=1;i<=n;i++)
         {
-            cout<<"febonaci sequance"<<endl;
-            cout<<a<<endl;
-            c=a+b;
-            a=b;
-            b=c;
+            cout<<fibo(i)<<"\t";
         }
     }
+    int fibo(int a)
+    {
+        if(a==1)
+            return 0;
+        else if(a==2)
+            return 1;
+        else
+            return fibo(a-1)+fibo(a-2);
 
+    }
 };
 int main()
 {
-    Febonaci f1;
+    Fibonaci f1;
     f1.fun();
-    f1.fib();
     return 0;
-
 }
+
